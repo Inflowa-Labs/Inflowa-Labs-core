@@ -3,11 +3,22 @@ use soroban_sdk::{contractimpl, Address, Env, Map, String, Symbol, Vec};
 // Contract structure for income streaming
 pub struct InflowaStream;
 
+#[cfg(test)]
+mod test;
+
 #[contractimpl]
 impl InflowaStream {
     // Initialize the contract
     pub fn init(env: Env, admin: Address) {
         env.storage().instance().set(&Symbol::new(&env, "admin"), &admin);
+    }
+
+    // Get contract admin
+    pub fn get_admin(env: Env) -> Address {
+        env.storage()
+            .instance()
+            .get(&Symbol::new(&env, "admin"))
+            .unwrap()
     }
 
     // Create a new income stream - matches core Stream data model
@@ -134,10 +145,28 @@ impl InflowaStream {
     // Get all streams for a user
     pub fn get_user_streams(env: Env, user: Address) -> Vec<u32> {
         let mut user_streams = Vec::new(&env);
-        let mut stream_id = 0u32;
+        let next_stream_id = env
+            .storage()
+            .instance()
+            .get(&Symbol::new(&env, "next_stream_id"))
+            .unwrap_or(0u32);
         
-        // In a real implementation, we'd iterate through all streams
-        // For now, return empty vector as placeholder
+        // Iterate through all stream IDs and collect those belonging to the user
+        for stream_id in 1..next_stream_id {
+            if let Some(stream_data) = env.storage().instance().get(&Symbol::new(&env, &stream_id)) {
+                let sender: Address = stream_data
+                    .get(Symbol::new(&env, "sender"))
+                    .unwrap();
+                let recipient: Address = stream_data
+                    .get(Symbol::new(&env, "recipient"))
+                    .unwrap();
+                
+                if sender == user || recipient == user {
+                    user_streams.push_back(stream_id);
+                }
+            }
+        }
+        
         user_streams
     }
 

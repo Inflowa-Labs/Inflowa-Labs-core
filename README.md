@@ -1,8 +1,30 @@
 # Inflowa Labs Core
 
-A comprehensive monorepo for a decentralized finance platform built with modern web technologies.
+**A Personal Income Streams Dashboard built on Stellar Soroban**
 
-## Architecture
+Inflowa Labs Core is a revolutionary DeFi platform that transforms how individuals receive and manage income. Built on the Stellar network using Soroban smart contracts, it enables continuous, real-time money streaming - imagine seeing your salary, grants, and payments flow in every second, not just on payday.
+
+## 🌟 Vision
+
+We believe income should flow like water - continuous, transparent, and accessible. Inflowa Labs brings this vision to life by:
+
+- **Real-time Income Visualization**: Watch your money streams flow in live on a beautiful dashboard
+- **Continuous Streaming**: No more waiting for payday - income arrives per-second
+- **Multi-Source Aggregation**: View salary, grants, payments, and investments in one place
+- **Future Simulation**: Model and predict your income growth over time
+- **Stream Control**: Pause/resume income streams with smart contract logic
+
+## 🚀 Why This Matters
+
+Traditional finance treats income as discrete events (monthly paychecks, quarterly grants). Inflowa Labs reimagines income as a continuous stream, enabled by blockchain technology. This is particularly valuable for:
+
+- **Freelancers & Gig Workers**: Receive continuous payment for work
+- **Grant Recipients**: Stream grant funding over project duration
+- **Investors**: Monitor dividend/yield streams in real-time
+- **Salary Streaming**: Employers can stream salary continuously
+- **Universal Basic Income**: Enable efficient UBI distribution
+
+## 🏗️ Architecture
 
 This monorepo uses **pnpm workspaces** and **Turborepo** for efficient package management and build orchestration.
 
@@ -13,7 +35,7 @@ This monorepo uses **pnpm workspaces** and **Turborepo** for efficient package m
 - **State Management**: React Query (TanStack Query)
 - **Charts**: Recharts
 - **Backend**: Next.js API routes with Node.js
-- **Blockchain**: Stellar Soroban (Mock Implementation)
+- **Blockchain**: Stellar Soroban Smart Contracts
 - **Development**: TypeScript, ESLint, Prettier
 
 ### Package Structure
@@ -81,12 +103,12 @@ RESTful API providing:
 
 ### Blockchain Service (`apps/blockchain`)
 
-Mock Stellar Soroban integration:
+Stellar Soroban smart contract integration:
 
 - `/api/contracts` - Smart contract management
 - `/api/transactions` - Blockchain transactions
 - `/api/balance/[address]` - Account balance queries
-- Mock contract implementations for testing
+- Real-time stream monitoring and updates
 
 ## Shared Packages
 
@@ -204,7 +226,36 @@ pnpm start
 
 Ensure all environment variables are properly configured for production deployment.
 
-## Contributing
+## 🌐 Stellar Ecosystem Integration
+
+Inflowa Labs is built specifically for the Stellar ecosystem, leveraging:
+
+- **Soroban Smart Contracts**: Our income streaming logic runs on-chain
+- **Stellar Asset Integration**: Stream any Stellar asset (XLM, USDC, custom tokens)
+- **Fast & Low-Cost**: Stellar's network enables efficient per-second streaming
+- **Interoperability**: Designed to work with existing Stellar wallets and tools
+
+### Smart Contract Features
+
+Our Soroban contract (`contracts/inflowa-stream`) provides:
+
+- **Continuous Streaming**: Money flows at configurable per-second rates
+- **Pause/Resume**: Admin controls for stream management
+- **Withdrawals**: On-demand fund withdrawals
+- **Multi-Asset Support**: Stream any Soroban-compatible token
+- **Query Functions**: Real-time stream status and calculations
+
+## 📊 Roadmap
+
+- [ ] Q1 2025: Mainnet deployment on Stellar
+- [ ] Q2 2025: Mobile app (React Native)
+- [ ] Q3 2025: Advanced analytics and forecasting
+- [ ] Q4 2025: Integration with major payroll providers
+- [ ] Q1 2026: Cross-chain streaming (Ethereum, Polygon)
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 1. Fork the repository
 2. Create a feature branch
