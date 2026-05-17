@@ -24,6 +24,19 @@ Traditional finance treats income as discrete events (monthly paychecks, quarter
 - **Salary Streaming**: Employers can stream salary continuously
 - **Universal Basic Income**: Enable efficient UBI distribution
 
+## 🔒 Security
+
+This project implements comprehensive security measures:
+- Input validation on all API endpoints
+- Rate limiting to prevent abuse
+- Secure storage with encryption
+- Authentication and session management
+- CORS configuration
+- Security headers and CSP
+- Regular dependency auditing
+
+See [SECURITY_GUIDELINES.md](SECURITY_GUIDELINES.md) for detailed security practices.
+
 ## 🏗️ Architecture
 
 This monorepo uses **pnpm workspaces** and **Turborepo** for efficient package management and build orchestration.
