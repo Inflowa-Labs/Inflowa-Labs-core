@@ -181,6 +181,11 @@ export class StreamService {
    * In real implementation: Call contract resume function
    */
   static async resumeStream(streamId: string): Promise<Stream> {
+    // Validate stream ID
+    if (!streamId || streamId.trim() === '') {
+      throw new Error('Stream ID is required')
+    }
+
     const stream = mockStore.streams.get(streamId)
     if (!stream) {
       throw new Error(`Stream ${streamId} not found`)
