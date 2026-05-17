@@ -130,3 +130,21 @@ logs
 
 # Turbo
 .turbo
+
+# Environment files
+.env*.local
+.env
+
+# IDE specific
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Security
+*.pem
+*.key
+*.cert
+secrets/
+
