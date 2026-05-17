@@ -187,6 +187,16 @@ Describe testing performed
 - Use environment variables for configuration
 - Implement rate limiting
 
+### Security Best Practices
+
+- Never commit secrets or API keys
+- Validate all user inputs
+- Use the security utilities provided in the codebase
+- Follow the guidelines in SECURITY_GUIDELINES.md
+- Run security audits before committing
+- Review dependencies for vulnerabilities
+- Implement proper authentication and authorization
+
 ## Questions?
 
 Feel free to open an issue for questions or discussion.
