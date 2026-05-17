@@ -9,7 +9,11 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "typecheck": "turbo run typecheck",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
