@@ -96,8 +96,19 @@ export class StreamService {
    * In real implementation: Call Stellar contract
    */
   static async createStream(streamData: Omit<Stream, 'id'>): Promise<Stream> {
+    // Validate input
+    if (!streamData.sender || !streamData.recipient) {
+      throw new Error('Sender and recipient addresses are required')
+    }
+    if (streamData.ratePerSecond <= 0) {
+      throw new Error('Rate per second must be positive')
+    }
+    if (streamData.startTime <= 0) {
+      throw new Error('Start time must be valid')
+    }
+
     // Generate unique stream ID (like transaction hash)
-    const streamId = `stream_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    const streamId = `stream_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
     
     const stream: Stream = {
       ...streamData,
