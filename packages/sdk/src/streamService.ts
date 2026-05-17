@@ -309,6 +309,14 @@ export class StreamService {
     streamId: string, 
     amount: number
   ): Promise<{ success: boolean; txHash?: string }> {
+    // Validate inputs
+    if (!streamId || streamId.trim() === '') {
+      throw new Error('Stream ID is required')
+    }
+    if (amount <= 0) {
+      throw new Error('Withdrawal amount must be positive')
+    }
+
     const stream = mockStore.streams.get(streamId)
     if (!stream) {
       throw new Error(`Stream ${streamId} not found`)
@@ -332,7 +340,7 @@ export class StreamService {
     }
 
     // Generate mock transaction hash
-    const txHash = `0x${Math.random().toString(16).substr(2, 64)}`
+    const txHash = `0x${Math.random().toString(16).substring(2, 66)}`
 
     // In real implementation:
     // - Submit withdrawal transaction to Stellar
